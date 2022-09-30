@@ -10,7 +10,6 @@ def save_gray_img(img, path, title):
 def save_image(img, path, title, counter):
     print(path)
     plt.imsave(path + f'{title}_{counter}.jpg', img)
-    #cv.imwrite(f'./{folder}/{title}.png', img)
 
 def save_preprocess_image(path, filename, img):
     plt.imsave(path + f'{filename}.jpg', img)
@@ -26,3 +25,6 @@ def make_dir(directory, name):
     else:
         os.mkdir(path)
         print("Directory '% s' created" % directory)
+    new_path = directory+name
+    print(new_path)
+    return new_path

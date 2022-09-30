@@ -181,14 +181,16 @@ def readJson(train_path, annotation_path):
         image_name = image_box["externalId"]
         filename, file_extension = os.path.splitext(image_name)
         print('IMGAE: ' + str(i) + ' / ' + 'IMAGE NAME: ' + image_name)
-        imagePaths.append(str(train_path) + str(image_name))
+        
         contents = []
         counter = 0
 
-        directory_path = 'C:/Users/zeyne/Desktop/ck/data/'
-        make_dir(directory_path, filename)
+        directory_path = 'D:/Cyberneticlabs/news_papers_OCR-develop/data/'
+        cropped_path = make_dir(directory_path, filename)
+        print(cropped_path)
         path = directory_path+filename+'/'
         print(path)
+        imagePaths.append(cropped_path)
 
         for box in image_box['tasks'][0]['objects']:
             #print(box["title"])
@@ -220,6 +222,8 @@ def readJson(train_path, annotation_path):
                     print("List is empty")    
                 else:
                     read_images.read_image(image_name, box_column_list, filename, path)
+
+    return imagePaths
 
 
 
